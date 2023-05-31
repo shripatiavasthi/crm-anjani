@@ -12,17 +12,19 @@ export default function Login() {
   const router = useRouter();
   const dispatch = useDispatch()
 
-  const getlocalStorage = async() => {
-    const isLogin =  await localStorage.getItem('userlogin')
+  const getlocalStorage = async () => {
+    const isLogin = await localStorage.getItem('userlogin')
     return isLogin
   }
 
   React.useEffect(() => {
-    getlocalStorage().then((res)=> {
-      router.push('/dashboard')
-    })  
+    getlocalStorage().then((res) => {
+      if (res) {
+        router.push('/dashboard')
+      }
+    })
   }, [])
-  
+
 
 
   const Form = () => {
@@ -50,11 +52,11 @@ export default function Login() {
       }
       const rawResp = await dispatch(userlogin(data))
       const resp = await unwrapResult(rawResp)
-      if(resp.data.token){
+      if (resp.data.token) {
         localStorage.setItem('userlogin', 'true')
         router.push('/dashboard')
-      }else{
-        alert("Invalid username or password") 
+      } else {
+        alert("Invalid username or password")
       }
     }
 
