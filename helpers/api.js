@@ -51,7 +51,7 @@ export const doDel = async (thunk , location , query) => {
 
 export const doGet = async (thunk , location , query,token ) => {
   let url = getLocation(location) + ObjectHelper.getQueryString(query);
-  const response  = await axios.get(url,{withCredentials: true});
+  const response  = await axios.get(url);
   status(response)
   return await response;
 };
