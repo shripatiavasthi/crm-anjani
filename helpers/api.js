@@ -28,11 +28,7 @@ export const doPost = async (thunk , location , query , body, token) => {
   let url = getLocation(location) + ObjectHelper.getQueryString(query);
 
   let headers = {
-    "Content-Type": "application/json",
-  }
-
-  if (token) {
-    headers["Authorization"] = `${token}`;
+    "Content-Type": "application/json"
   }
 
   const response = await axios.post(url, body, headers);
@@ -53,17 +49,10 @@ export const doDel = async (thunk , location , query) => {
   return await response;
 };
 
-export const doGet = async (thunk , location , query ) => {
+export const doGet = async (thunk , location , query,token ) => {
   let url = getLocation(location) + ObjectHelper.getQueryString(query);
-  const config  = {
-    headers: {
-      "Content-Type": "application/json",
-    },
-  };
- 
-  const response  = await axios.get(url, config);
+  const response  = await axios.get(url,{withCredentials: true});
   status(response)
-  console.log(response,"kkkkkkkk")
   return await response;
 };
 

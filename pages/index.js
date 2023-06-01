@@ -53,7 +53,7 @@ export default function Login() {
       const rawResp = await dispatch(userlogin(data))
       const resp = await unwrapResult(rawResp)
       if (resp.data.token) {
-        localStorage.setItem('userlogin', 'true')
+        localStorage.setItem('token', `${resp.data.token}`)
         router.push('/dashboard')
       } else {
         alert("Invalid username or password")

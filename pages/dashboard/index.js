@@ -1,10 +1,9 @@
 import * as React from 'react';
 import DataGrid from '../../components/DataGrid'
 import { useSelector, useDispatch } from 'react-redux'
-import { getleads,deleteleads } from '../../feature/leadSlice'
+import { getleads, deleteleads } from '../../feature/leadSlice'
 import Dashboard from '../../components/DashboardView'
 import Modal from '../../components/Modal'
-import AddCircleOutlineIcon from '@mui/icons-material/AddCircleOutline';
 import ModeEditIcon from '@mui/icons-material/ModeEdit';
 import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
 import AddEditModel from '@/components/Leads/AddEditModel';
@@ -22,7 +21,9 @@ export default function MiniDrawer() {
   const handleOpen = () => setmodalState(true)
 
   React.useEffect(() => {
+
     dispatch(getleads())
+
   }, [])
 
   const leads = useSelector(state => state.lead.LeadDetails)
@@ -87,15 +88,15 @@ export default function MiniDrawer() {
       renderCell: (param) => (
         <div>
           {/* <span onClick={() => { handleOpen(), console.log(param.row) }} className='mx-2 cursor-pointer'><AddCircleOutlineIcon /></span> */}
-          <span onClick={() => { handleOpen(), setEditableId(param.row._id),setAdd(false) }} className='mx-2 cursor-pointer'><ModeEditIcon /></span>
-          <span  onClick={async () => {
+          <span onClick={() => { handleOpen(), setEditableId(param.row._id), setAdd(false) }} className='mx-2 cursor-pointer'><ModeEditIcon /></span>
+          <span onClick={async () => {
             const data = {
               body: {
                 id: param.row._id
               }
             }
-           await dispatch(deleteleads(data))
-           await dispatch(getleads())
+            await dispatch(deleteleads(data))
+            await dispatch(getleads())
           }} className='mx-2 cursor-pointer'><DeleteForeverIcon /></span>
         </div>
       ),
@@ -108,7 +109,7 @@ export default function MiniDrawer() {
         <AddEditModel Add={Add} handleClose={handleClose} EditableId={EditableId} />
       </Modal>
       <div className='flex justify-end border-red-700'>
-        <Button onClick={() => {handleOpen(),setAdd(true)}} color='error' css={'py-4'} text={'+ ADD'}/>
+        <Button onClick={() => { handleOpen(), setAdd(true) }} color='error' css={'py-4'} text={'+ ADD'} />
       </div>
       <DataGrid columns={columns} data={leads} />
     </Dashboard>
