@@ -34,6 +34,11 @@ export default function MiniDrawer() {
       headerName: 'Number',
       type: 'Number',
       flex: 1,
+      renderCell: (param) => (
+        <div>
+          <a href={`tel:+91${param.row.phoneNumber}`} className='mx-2 cursor-pointer'>{param.row.phoneNumber}</a>
+        </div>
+      ),
     },
     {
       field: 'name',
