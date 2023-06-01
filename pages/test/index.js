@@ -1,7 +1,7 @@
 import * as React from 'react';
 import DataGrid from '../../components/DataGrid'
 import { useSelector, useDispatch } from 'react-redux'
-import { getleads,deleteleads } from '../../feature/leadSlice'
+import { getTest } from '../../feature/testSlice'
 import Dashboard from '../../components/DashboardView'
 import Modal from '../../components/Modal'
 import AddCircleOutlineIcon from '@mui/icons-material/AddCircleOutline';
@@ -22,7 +22,7 @@ export default function MiniDrawer() {
   const handleOpen = () => setmodalState(true)
 
   React.useEffect(() => {
-    dispatch(getleads())
+    dispatch(getTest())
   }, [])
 
   const leads = useSelector(state => state.lead.LeadDetails)

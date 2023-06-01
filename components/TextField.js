@@ -13,7 +13,7 @@ export default function BasicTextFields(props) {
       noValidate
       autoComplete="off"
     >
-      <TextField name={name} value={value} onChange={onChange} id="outlined-basic" label={label} variant={variant} />
+      <TextField name={name} value={value} onChange={onChange} id="outlined-controlled" label={label} variant={variant} focused />
     </Box>
   );
 }

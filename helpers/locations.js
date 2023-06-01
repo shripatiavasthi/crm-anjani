@@ -9,6 +9,11 @@ const locations = {
     NEWLEAD : '/lead/new',
     DELLEAD : '/admin/lead/',
     PUTLEAD : '/admin/lead/',
-    ADMINLEADSTATUS : '/admin/leadstatus/'
+    ADMINLEADSTATUS : '/admin/leadstatus/',
+    GETTEST : '/test/',
+    NEWTEST : '/test/new',
+    GETTESTPARAM : '/testparameter/',
+    NEWTESTPARAM : '/testparameter/new'
+
 };
 export default locations

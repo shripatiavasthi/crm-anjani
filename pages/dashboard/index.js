@@ -8,6 +8,7 @@ import ModeEditIcon from '@mui/icons-material/ModeEdit';
 import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
 import AddEditModel from '@/components/Leads/AddEditModel';
 import Button from '../../components/Button'
+import moment from 'moment';
 
 
 
@@ -87,6 +88,18 @@ export default function MiniDrawer() {
       type: 'String',
       flex: 1,
     },
+    {
+      field: 'createdAt',
+      headerName: 'created At',
+      flex: 1,
+      renderCell: (param) => (
+        <div>
+           {moment(param.row.createdAt).startOf('hour').fromNow()}
+        </div>
+      ),
+     
+    },
+    
     {
       headerName: 'Action',
       width: 180,

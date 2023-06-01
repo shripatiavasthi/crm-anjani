@@ -42,7 +42,7 @@ function AddEditModel(props) {
         'name': LeadById?.name,
         'email': LeadById?.email,
         'city': LeadById?.city._id,
-        'leadStatus': LeadById?.leadStatus._id
+        'leadStatus': LeadById?.leadStatus?._id
         })
     },[LeadById])
 
