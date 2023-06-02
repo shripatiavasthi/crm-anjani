@@ -41,7 +41,7 @@ function AddEditModel(props) {
         'phoneNumber': LeadById?.phoneNumber,
         'name': LeadById?.name,
         'email': LeadById?.email,
-        'city': LeadById?.city._id,
+        'city': LeadById?.city?._id,
         'leadStatus': LeadById?.leadStatus?._id
         })
     },[LeadById])
